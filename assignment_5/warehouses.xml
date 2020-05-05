@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<warehouses>
+		<warehouse warehouse_id="w_0001" responsible_employee="e_0001">
+			<name_warhouse>PILHK_001</name_warhouse>
+			<address>Piletická 55, Hradec Králové, 50003</address>
+		</warehouse>
+		<warehouse warehouse_id="w_0002" responsible_employee="e_0002">
+			<name_warhouse>KLECPRG_001</name_warhouse>
+			<address>Parkerova 617, 250 67 Klecany u Prahy</address>
+		</warehouse>
+	</warehouses>

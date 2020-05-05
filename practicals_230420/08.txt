@@ -1,0 +1,14 @@
+for $comfort_val in ("fn:distinct-values(//flat/@comfort)")
+let $comf_group := //flat[@comfort = $comfort_val]
+let $flat_comf_count := count($comf_group)
+
+where $flat_comf_count > 1
+order by $flat_comf_count ascending
+return
+<group comfort="{ $comfort_val }">
+{
+    for $flat in $comf_group
+    order by $flat/@idFlat
+    return <flat id="{ $flat/@idFlat }"/>
+}
+</group>

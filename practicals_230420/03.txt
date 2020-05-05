@@ -1,0 +1,8 @@
+for $emp in //agency/employee
+let $ag := $emp/parent::agency
+return
+<employee>
+    <name> {$emp/firstName/text()} {$emp/lastName/text()} </name>
+    works at
+    <agency id="{ $ag/@idAgency }">$ag/name/text()</agency>
+</employee>

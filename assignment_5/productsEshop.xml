@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prods>
+		<prod>
+			<code>07014-MxB-ML</code>
+			<EAN>978020137962</EAN>
+			<prod_name>Sportovní bambusová podprsenka</prod_name>
+            <prod_desc>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam id dolor. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo.</prod_desc>
+            <price>100</price>
+            <currency>CZK</currency>
+		</prod>
+		<prod>
+			<code>07018-MxB-ML</code>
+			<EAN>978020137963</EAN>
+			<prod_name>Sportovní bambusová legíny</prod_name>
+            <prod_desc>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam id dolor. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo.</prod_desc>
+            <price>100</price>
+            <currency>CZK</currency>
+		</prod>
+		<prod>
+			<code>07014-MxC-SM</code>
+			<EAN>978020137964</EAN>
+			<prod_name>Sportovní bambusová podprsenka</prod_name>
+            <prod_desc>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam id dolor. Proin pede metus, vulputate nec, fermentum fringilla, vehicula vitae, justo.</prod_desc>
+            <price>100</price>
+            <currency>CZK</currency>
+		</prod>
+		<prod>
+			<code>07014-MxC-XL</code>
+			<EAN>978020137965</EAN>
+			<prod_name>Sportovní bambusová podprsenka</prod_name>
+            <price>100</price>
+            <currency>CZK</currency>
+		</prod>
+	</prods>

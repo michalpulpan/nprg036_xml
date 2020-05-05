@@ -1,0 +1,3 @@
+(: xpath4.xp: Vybere sériové číslo prvního notebooku z výbavy pro zaměstnance :)
+
+//employee_equipment/equipment[@category="notebook"]/item_eqp[position()=1]/sn

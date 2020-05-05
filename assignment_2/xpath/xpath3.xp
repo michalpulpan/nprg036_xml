@@ -1,0 +1,5 @@
+(: xpath3.xp: Získá rodné číslo zaměstnanců, kteří neměli žádnou nemocenskou :)
+
+//employee[not(./sickdays/sickday)]/ssn/text()
+
+

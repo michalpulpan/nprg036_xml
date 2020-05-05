@@ -1,0 +1,4 @@
+for $owner in //owner
+where $owner/address/country = "Česká republika"
+order by $owner/name
+return $owner

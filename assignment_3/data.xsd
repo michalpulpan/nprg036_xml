@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="webshop">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="employees" type="TEmployees" />
+				<xs:element name="employee_equipment" type="TEmployeeEquipment"/>
+				<xs:element name="products" type="TProducts"/>
+				<xs:element name="warehouses" type="TWarehouses"/>
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:key name="KEmployee">
+			<xs:selector xpath="employees/employee"></xs:selector>
+			<xs:field xpath="@id_num"></xs:field>
+		</xs:key>
+
+
+	</xs:element>
+
+	<!--EMPLOYEES-->
+	<xs:complexType name="TEmployees">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="employee" type="TEmployee"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--EMPLOYEE-->
+	<xs:complexType name="TEmployee">
+		<xs:sequence>
+			<xs:element name="firstname" type="xs:string" />
+			<xs:element name="surname" type="xs:string" />
+			<xs:element name="ssn" type="xs:string" />
+			<xs:element name="position" type="xs:string" />
+			<xs:element name="education" type="xs:string" />
+			<xs:element name="contract" type="TEmployeeContract"/>
+			<xs:element name="equipment_received" type="TEmployeeEquipmentReceived"/>
+			<xs:element name="salary" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="id_num" type="xs:ID" use="required" />
+		<xs:attribute name="employment_type" type="xs:string" use="required" />
+	</xs:complexType>
+
+	<!--CONTRACT-->
+	<xs:complexType name="TEmployeeContract">
+		<xs:sequence>
+			<xs:element name="from" type="xs:string" />
+			<xs:element name="to" type="xs:string" />
+			<xs:element name="type" type="xs:string" />
+		</xs:sequence>
+		<xs:attribute name="contract_id" type="xs:ID" use="required" />
+	</xs:complexType>
+
+	<!--EQUIPMENT RECEIVED-->
+		<xs:complexType name="TEmployeeEquipmentReceived">
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="item" type="TItem" />
+			</xs:sequence>
+		</xs:complexType>
+
+	<!--EQUIPMENT RECEIVED's ITEM-->
+		<xs:complexType name="TItem">
+			<xs:sequence>
+				<xs:element name="given_date" type="xs:string" />
+				<xs:element name="status_given_date" type="xs:string"/>
+				<xs:element name="returned_date" type="xs:string"  minOccurs="0"/>
+				<xs:element name="status_returned_date" type="xs:string"  minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="id_item" type="xs:IDREF" use="required" />
+			<xs:attribute default="no" name="returned">
+				<xs:simpleType>
+					<xs:restriction base="xs:NMTOKEN">
+						<xs:enumeration value="yes" />
+						<xs:enumeration value="no" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+
+
+	<!--eEMPLOYEE EQP-->
+
+	<xs:complexType name="TEmployeeEquipment">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="equipment" type="TEmployeeEquipmentEqp" />
+		</xs:sequence>
+	</xs:complexType>
+	<!--EQUIPMENT-->
+		<xs:complexType name="TEmployeeEquipmentEqp">
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="item_eqp" type="TEmployeeEquipmentEqpItemEqp" />
+			</xs:sequence>
+			<xs:attribute name="category" type="xs:string" use="required"/>
+		</xs:complexType>
+
+		<xs:complexType name="TEmployeeEquipmentEqpItemEqp">
+			<xs:sequence>
+				<xs:element name="eqp_name" type="xs:string" />
+				<xs:element name="SN" type="xs:string" />
+			</xs:sequence>
+			<xs:attribute name="item_eqp_id" type="xs:ID" use="required" />
+		</xs:complexType>
+
+	<!--PRODUCTS-->
+	<xs:complexType name="TProducts">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="product" type="TProduct" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--PRODUCT-->
+		<xs:complexType name="TProduct">
+			<xs:sequence>
+				<xs:element name="code" type="xs:string" />
+				<xs:element name="EAN" type="xs:string" />
+				<xs:element name="prod_name" type="xs:string" />
+				<xs:element name="quantity" type="TProductQty"/>
+				<xs:element name="product_note" type="TProductNote"/>
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="TProductQty">
+			<xs:sequence minOccurs="0" maxOccurs="unbounded">
+				<xs:element name="location" type="TProductQtyLocation" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="TProductQtyLocation">
+			<xs:sequence>
+				<xs:element name="qty" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="condition" type="xs:string" use="required"/>
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="warehouse_id" type="xs:IDREF" use="required" />
+		</xs:complexType>
+	
+	<xs:complexType name="TProductNote" mixed="true">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="it" type="xs:string" />
+			<xs:element name="bold" type="xs:string" />
+		</xs:choice>
+	</xs:complexType>
+
+
+	<!--WAREHOUSES-->
+	<xs:complexType name="TWarehouses">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element ref="warehouse" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="warehouse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="name_warhouse" type="xs:string" />
+				<xs:element name="address" type="xs:string" />
+			</xs:sequence>
+			<xs:attribute name="warehouse_id" type="xs:ID" use="required" />
+			<xs:attribute name="responsible_employee" type="xs:IDREF" use="required" />
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

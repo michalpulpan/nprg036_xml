@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="real-estate">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="agencies">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="agency" type="TAgency" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="owners">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="owner" type="TOwner" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="properties">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="property" type="TProperty" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="flats">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="flat" type="TFlat" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+
+	<!--KEYS slide 85-->
+
+	<xs:key name="PropertyKey">
+		<xs:selector xpath="properties/property"/>
+		<xs:field xpath="@idProperty"/>
+	</xs:key>
+
+	<xs:key name="FlatKey">
+		<xs:selector xpath="flats/flat"/>
+		<xs:field xpath="@idFlat"/>
+	</xs:key>
+
+	<xs:key name="FlatKey2">
+		<xs:selector xpath="properties/property"/>
+		<xs:field xpath="name"></xs:field>
+		<xs:field xpath="@propertyRef"></xs:field>
+	</xs:key>
+
+	<xs:keyref name="FlatKeyproperty" refer="PropertyKey">
+		<xs:selector xpath="flats/flat"></xs:selector>
+		<xs:field xpath="@propertyRef"></xs:field>
+	</xs:keyref>
+
+
+	<!--KEY END -->
+
+
+	</xs:element>
+
+
+	<!--GLOBAL--> <!--https://www.w3schools.com/xml/el_element.asp-->
+	<xs:element name="address" type="TAddress"/>
+	<!--GLOBAL END-->
+
+
+
+	<xs:complexType name="TAddress">
+		<xs:sequence>
+			<xs:element name="street" type="xs:string"/>
+			<xs:choice><!--slide 50-->
+				<xs:sequence>
+					<xs:element name="postalCode" type="xs:string"/>
+					<xs:element name="city" type="xs:string"/>
+					<xs:element name="country" type="xs:string"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="city" type="xs:string"/>
+					<xs:element name="postalCode" type="xs:string"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TAgency">
+		<xs:all> <!--slide 52 -->
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="email" type="xs:string"/>
+			<xs:element name="phone" type="xs:string"/>
+			<xs:element ref="address"/>
+		</xs:all>
+	</xs:complexType>
+	
+	<xs:complexType name="TOwner">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element ref="address"/>
+		</xs:sequence>
+		<xs:attribute name="idOwner" type="xs:ID" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="TProperty">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element ref="address"/>
+			<xs:element name="numberOfFlats">
+				<xs:simpleType>
+					<xs:restriction base="xs:positiveInteger">
+						<xs:maxInclusive value="1500"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="description" type="TPropertyDescription"/>
+			<xs:element name="features" type="TFeatures" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="idProperty" type="xs:ID" use="required"/>
+		<xs:attribute name="ownerRef" type="xs:IDREF"/>
+	</xs:complexType>
+
+	<xs:complexType name="TPropertyDescription">
+		<xs:sequence> <!--slide 97-->
+			<xs:any namespace="http://www.w3.org/1999/xhtml" processContents="lax"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TFlat">
+		<xs:sequence>
+			<xs:element name="name" type="TFlatName"/>
+			<xs:element name="description" type="TFlatDescription"/>
+			<xs:element name="features" type="TFeatures" minOccurs="0"/>
+			<xs:element name="rate" type="xs:nonNegativeInteger"/>
+		</xs:sequence>
+		<xs:attribute name="idFlat" type="TFlatID" use="required"/>
+		<xs:attribute name="propertyRef" type="xs:IDREF" use="required"/>
+		<xs:attribute name="comfortLevel" type="TFlatComfortLevel" use="required"/>
+		<xs:attribute name="datePosted" type="xs:date" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="TFlatDescription" mixed="true">
+		<xs:sequence>
+			<xs:element name="ownerRef" minOccurs="0"> <!--There can be an arbitrary number of these references, but owner references must occur before property references-->
+				<xs:complexType> <!--slide 46-->
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="ownerId" type="xs:IDREF" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>	
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="propertyRef" minOccurs="0"> <!--There can be an arbitrary number of these references, but owner references must occur before property references-->
+				<xs:complexType> <!--slide 46-->
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="propertyID" type="xs:IDREF" use="required"/>
+						</xs:extension>
+					</xs:simpleContent>	
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TFeatures">
+		<xs:sequence>
+			<xs:element name="feature" minOccurs="2" maxOccurs="5">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="categories" use="optional">
+								<xs:simpleType>
+									<xs:list itemType="TFeatureCategory"/>
+								</xs:simpleType>
+							</xs:attribute>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="TFeatureCategory" final="restriction">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="location"/>
+			<xs:enumeration value="equipment"/>
+			<xs:enumeration value="security"/>
+			<xs:enumeration value="comfort"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="TFlatID">
+        <xs:restriction base="xs:ID">
+            <xs:pattern value="[fF][0-9]{1,5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+	<xs:simpleType name="TFlatName">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="5"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>	
+	
+	<xs:simpleType name="TFlatComfortLevel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="A"/>
+            <xs:enumeration value="B"/>
+            <xs:enumeration value="C"/>
+            <xs:enumeration value="D"/>
+            <xs:enumeration value="E"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+    </xs:simpleType>
+	
+</xs:schema>

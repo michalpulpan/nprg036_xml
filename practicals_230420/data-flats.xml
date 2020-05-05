@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flats>
+	
+	<flat>
+		<propertyName>Old Skyscraper</propertyName>
+		<flatId>f5</flatId>
+		<flatName>Pink Flat</flatName>
+		<comfortLevel>E</comfortLevel>
+	</flat>
+	
+	<flat>
+		<propertyName>Old Skyscraper</propertyName>
+		<flatId>f7</flatId>
+		<flatName>Green Flat</flatName>
+		<comfortLevel>D</comfortLevel>
+	</flat>
+	
+	<flat>
+		<propertyName>Old Skyscraper</propertyName>
+		<flatId>f6</flatId>
+		<flatName>Purple Flat</flatName>
+		<comfortLevel>F</comfortLevel>
+	</flat>
+	
+</flats>

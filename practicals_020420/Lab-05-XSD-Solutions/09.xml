@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<real-estate
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="09.xsd">
+	
+	<agencies>
+        <agency>
+            <email>info@realitka.cz</email>
+            <name>První realitní</name>
+            <address>
+                <street>Moskevská 235</street>
+                <postalCode>11000</postalCode>
+                <city>Praha</city>
+                <country>Česká republika</country>
+            </address>
+            <phone>+420 212 345 678</phone>
+        </agency>
+	</agencies>
+    
+    <owners>
+        <owner idOwner="o1">
+            <name>Alexandr Kendík</name>
+            <address>
+                <street>Soukenné náměstí 25</street>
+                <city>Liberec</city>
+                <postalCode>46001</postalCode>
+            </address>
+        </owner>
+	</owners>
+    
+    <properties>
+        <property idProperty="p1" ownerRef="o1">
+            <name>Fireplace Residence</name>
+            <address>
+                <street>Moskevská 234</street>
+                <postalCode>11000</postalCode>
+                <city>Praha</city>
+                <country>Česká republika</country>
+            </address>
+            <numberOfFlats>3</numberOfFlats>
+            <description xmlns:w="http://www.w3.org/1999/xhtml">
+				<w:html>
+					<w:head>
+						<w:title>Fireplace Residence Homepage</w:title>
+					</w:head>
+					<w:body>
+						<w:div>Further information...</w:div>
+					</w:body>
+				</w:html>
+            </description>
+            <features>
+                <feature categories="location comfort">street view</feature>
+                <feature categories="location">subway</feature>
+            </features>
+        </property>
+	</properties>
+    
+    <flats>
+        <flat idFlat="f1" propertyRef="p1" comfortLevel="E" datePosted="2010-12-01">
+            <name>K0101</name>
+            <description>Small flat with no windows</description>
+            <rate>123</rate>
+        </flat>
+        <flat idFlat="f2" propertyRef="p1" comfortLevel="C">
+            <name>K0501</name>
+            <description>Ordinary flat with plenty of windows</description>
+            <rate>1234</rate>
+        </flat>
+        <flat idFlat="f3" propertyRef="p1" comfortLevel="A" datePosted="2016-04-01">
+            <name>K1501</name>
+            <description>Luxury flat with a huge terrace, recommended by <ownerRef ownerId="o1">Alexandr</ownerRef> himself</description>
+            <features>
+                <feature>own elevator</feature>
+                <feature>garden</feature>
+                <feature>bath</feature>
+                <feature>2 bathrooms</feature>
+            </features>
+            <rate>12345</rate>
+        </flat>
+	</flats>
+    
+</real-estate>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<real-estate
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="04.xsd">
+	
+	<agencies>
+        <agency>
+            <name>První realitní</name>
+            <email>info@realitka.cz</email>
+            <phone>+420 481 234 567</phone>
+        </agency>
+	</agencies>
+    
+    <owners>
+        <owner idOwner="o1">
+            <name>Alexandr Kendík</name>
+        </owner>
+	</owners>
+    
+    <properties>
+        <property idProperty="p1" ownerRef="o1">
+            <name>Hearth Residence</name>
+            <numberOfFlats>20</numberOfFlats>
+        </property>
+	</properties>
+    
+    <flats>
+        <flat idFlat="f1" propertyRef="p1" comfortLevel="E" datePosted="2010-12-01">
+            <name>K0101</name>
+            <description>Small flat with no windows</description>
+            <rate>123</rate>
+        </flat>
+        <flat idFlat="f2" propertyRef="p1" comfortLevel="C">
+            <name>K0501</name>
+            <description>Ordinary flat with plenty of windows</description>
+            <rate>1234</rate>
+        </flat>
+        <flat idFlat="f3" propertyRef="p1" comfortLevel="A" datePosted="2016-04-01">
+            <name>K1501</name>
+            <description>Luxury flat with a huge terrace</description>
+            <rate>12345</rate>
+        </flat>
+	</flats>
+    
+</real-estate>

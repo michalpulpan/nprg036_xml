@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <th>Id</th><th>Name</th><th>Features</th>
+    </tr>
+    {
+
+        for $prop in //property
+        return
+        <tr>
+            <td>{ $prop/@idProperty/text() }</td>        
+            <td>{ $prop/name/text() }</td>
+            <td>
+                {
+                    $prop/features/feature[1]/text()
+                }
+                { 
+                    for $feature in $prop/features/feature[position() != 1]
+                    return fn:concat(", ",  $feature/text() )
+                }
+            </td>
+        </tr>
+
+    }
+</table>

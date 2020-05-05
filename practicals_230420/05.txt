@@ -1,0 +1,10 @@
+let $flats := //flat
+let $avgRate := fn:avg($flats/rate)
+for $flat in $flats
+let $comf := $flat/@comfort
+where ($comf = "B" or $comf = "C") and ($flat/rate < $avgRate)
+return fn:data($flat/@idFlat)
+
+
+
+

@@ -1,0 +1,14 @@
+for $flat in //flat
+let $prop := //property[@idProperty = $flat/@property]/name
+order by $prop descending, $flat/name ascending
+
+return (
+<property>{ data($flat/@property) }</property>,
+<name>{$flat/name/text()}</name>,
+<comfort>{ data($flat/@comfort) }</comfort>
+
+)
+
+
+
+

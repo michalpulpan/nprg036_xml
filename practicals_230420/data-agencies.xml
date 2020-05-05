@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<agencies>
+
+	<agency>
+		<id>a1</id>
+		<web>http://www.best-nyc.com/</web>
+	</agency>
+	
+	<agency>
+		<id>a4</id>
+		<web>http://www.realitka.cz/</web>
+	</agency>
+	
+	<agency>
+		<id>a2</id>
+		<web>http://www.real-estate.org/</web>
+	</agency>
+	
+</agencies>

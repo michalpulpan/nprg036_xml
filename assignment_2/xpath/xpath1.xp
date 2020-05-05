@@ -1,0 +1,15 @@
+(: xpath1.xp: získá rodná čísla všech zaměstnanců, kteří mají zapůjčený pracovní notebook :)
+
+//employee[
+	./equipment_received/item[
+    	@returned='no' 
+        
+        and 
+        
+        @id_item=//equipment[@category="notebook"]/item_eqp/@item_eqp_id
+
+        ] 
+        
+        ]/ssn/text()
+
+

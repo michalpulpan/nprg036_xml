@@ -1,0 +1,11 @@
+for $prop in //property
+let $flats := //flats/flat[@property = $prop/@idProperty]
+
+return
+(:if (every $flat in $flats satisfies $flat/rate > 10000) :) (: slide 45 :)
+(:alternative:)
+
+if (cout($flats) = cout($flats[rate > 10000])
+then <luxuryProperty name="{ $prop/name/text() }"/>
+else <commonProperty name="{ $prop/name/text() }"/>
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" idProperty="p3">
+            <name>Cozy Cottage</name>
+            <address>
+                <street>Okrajová 1</street>
+                <postalCode>11000</postalCode>
+                <city>Praha</city>
+                <country>Česká republika</country>
+            </address>
+            <numberOfFlats>1</numberOfFlats>
+        </property>

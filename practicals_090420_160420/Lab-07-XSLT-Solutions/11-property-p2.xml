@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" idProperty="p2" ownerRef="o1">
+            <name>New Skyscraper</name>
+            <address>
+                <street>Moskevská 238</street>
+                <postalCode>11000</postalCode>
+                <city>Praha</city>
+                <country>Česká republika</country>
+            </address>
+            <numberOfFlats>100</numberOfFlats>
+        </property>

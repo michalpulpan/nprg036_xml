@@ -1,0 +1,10 @@
+let $properties := //property
+(: select number of flats in property :)
+let $flats_count := for $property in $properties return fn:count(//flat[@property = $property/@idProperty])
+let $max_flats_count := fn:max($flats_count)
+for $property in $properties 
+let $sum := fn:count(//flat[@property = $property/@idProperty]) (: select only those having max sum :)
+where $sum = $max_flats_count
+order by $property/name/text() ascending
+return
+<property id="{ $property/@idProperty }" flats=" { $sum } "/>

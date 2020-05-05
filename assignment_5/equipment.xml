@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<employee_equipment>
+			<item_eqp item_eqp_id="i_0001" category="notebook">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000001</SN>
+			</item_eqp>
+
+			<item_eqp item_eqp_id="i_0002" category="notebook">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000002</SN>
+			</item_eqp>
+			<item_eqp item_eqp_id="i_0005" category="notebook">
+				<eqp_name>"APPLE_MB"</eqp_name>
+				<SN>AAPL00005</SN>
+			</item_eqp>
+			<item_eqp item_eqp_id="i_0006" category="notebook">
+				<eqp_name>"APPLE_MBP"</eqp_name>
+				<SN>AAPL00006</SN>
+			</item_eqp>
+			<item_eqp item_eqp_id="i_0007" category="desktop">
+				<eqp_name>"APPLE_IMAC"</eqp_name>
+				<SN>AAPL00007</SN>
+			</item_eqp>
+			<item_eqp item_eqp_id="i_0003" category="mouse">
+				<eqp_name>"Logitech"</eqp_name>
+				<SN>LOGI000001</SN>
+			</item_eqp>
+			<item_eqp item_eqp_id="i_0004" category="mouse">
+				<eqp_name>"Logitech"</eqp_name>
+				<SN>LOGI000002</SN>
+			</item_eqp>
+	</employee_equipment>

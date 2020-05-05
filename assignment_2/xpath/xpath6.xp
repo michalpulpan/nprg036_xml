@@ -1,0 +1,4 @@
+(: xpath6.xp: Vrátí rodná čísla zaměstnanců, mají smlouvu na plný úvazek :)
+
+
+//employee[contract/type/text() = 'full_time']/ssn

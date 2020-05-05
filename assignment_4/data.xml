@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webshop>
+	<employees>
+		<employee id_num="e_0001" employment_type="full_time">
+			<firstname>Jan</firstname>
+			<surname>Novák</surname>
+			<ssn>7501024578</ssn>
+			<position>Purchases</position>
+			<education>high school</education>
+			<contract contract_id="c_0001">
+				<from>0103207</from>
+				<to></to>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+				<item id_item="i_0001" returned="yes">
+					<given_date>02012016</given_date>
+					<status_given_date>A+ (everything working properly, no dents or scratches)</status_given_date>
+					<returned_date>20122019</returned_date>
+					<status_returned_date>A (everything working properly, no dents, slightly scratched display cover)</status_returned_date>
+				</item>
+				<item id_item="i_0002" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>B (everything working properly, little dent in one corner, scratches on lid)</status_given_date>
+				</item>
+			</equipment_received>			
+			<salary>25000</salary>
+		</employee>
+		
+		<employee id_num="e_0002" employment_type="part_time">
+			<firstname>Václav</firstname>
+			<surname>Nový</surname>
+			<ssn>9302025478</ssn>
+			<position>IT managment</position>
+			<education>university</education>
+			<contract contract_id="c_0002">
+				<from>20160112</from>
+				<to/>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+				<item id_item="i_0001" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>A (everything working properly, no dents, slightly scratched display cover)</status_given_date>
+				</item>
+				<item id_item="i_0003" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>A (everything working properly)</status_given_date>
+				</item>
+			</equipment_received>
+			<salary>60000</salary>
+		</employee>
+
+		<employee id_num="e_0003" employment_type="part_time">
+			<firstname>Adam</firstname>
+			<surname>Němec</surname>
+			<ssn>7501024384</ssn>
+			<position>Marketing</position>
+			<education>high school</education>
+			<contract contract_id="c_0003">
+				<from>0103207</from>
+				<to></to>
+				<type>part_time</type>
+			</contract>
+			<equipment_received>
+			</equipment_received>			
+			<salary>25000</salary>
+		</employee>
+
+		<employee id_num="e_0004" employment_type="full_time">
+			<firstname>Kateřina</firstname>
+			<surname>Adamcová</surname>
+			<ssn>7501024578</ssn>
+			<position>Purchases</position>
+			<education>high school</education>
+			<contract contract_id="c_0004">
+				<from>0103207</from>
+				<to>0103220</to>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+			</equipment_received>			
+			<salary>25000</salary>
+		</employee>
+
+		<employee id_num="e_0005" employment_type="full_time">
+			<firstname>Jaromír</firstname>
+			<surname>Slepý</surname>
+			<ssn>77663399</ssn>
+			<position>warehouse manager</position>
+			<education>high school</education>
+			<contract contract_id="c_0005">
+				<from>0103207</from>
+				<to></to>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+			</equipment_received>			
+			<salary>25000</salary>
+		</employee>
+
+	</employees>
+	
+	<employee_equipment>
+		<equipment category="notebook">
+			<item_eqp item_eqp_id="i_0001">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000001</SN>
+			</item_eqp>
+
+			<item_eqp item_eqp_id="i_0002">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000002</SN>
+			</item_eqp>
+		</equipment>
+		<equipment category="mouse">
+			<item_eqp item_eqp_id="i_0003">
+				<eqp_name>"Logitech"</eqp_name>
+				<SN>LOGI000001</SN>
+			</item_eqp>
+		</equipment>
+	</employee_equipment>
+	
+	<products>
+		<product>
+			<code>07014-MxB-ML</code>
+			<EAN>978020137962</EAN>
+			<prod_name>Sportovní bambusová podprsenka</prod_name>
+			<quantity>
+				<location warehouse_id="w_0001">
+					500
+				</location>
+				<location warehouse_id="w_0002">
+					125
+				</location>
+			</quantity>			
+		</product>
+		<product>
+			<code>07018-MxB-ML</code>
+			<EAN>978020137963</EAN>
+			<prod_name>Sportovní bambusová legíny</prod_name>
+			<quantity>
+				<location warehouse_id="w_0001">500</location>
+				<location warehouse_id="w_0002">15</location>
+			</quantity>
+			
+		</product>
+	</products>
+
+	<warehouses>
+		<warehouse warehouse_id="w_0001" responsible_employee="e_0001">
+			<name_warhouse>PILHK_001</name_warhouse>
+			<address>Piletická 55, Hradec Králové, 50003</address>
+		</warehouse>
+		<warehouse warehouse_id="w_0002" responsible_employee="e_0002">
+			<name_warhouse>KLECPRG_001</name_warhouse>
+			<address>Parkerova 617, 250 67 Klecany u Prahy</address>
+		</warehouse>
+	</warehouses>
+</webshop>

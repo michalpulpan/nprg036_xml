@@ -1,0 +1,14 @@
+for $prop in //property
+return 
+<property idProperty="{$prop/@idProperty}">
+    <owner>
+        {//owner[@idOwner = $prop/@owner]/name/text()}
+    </owner>
+    {$prop/address}
+</property>
+
+
+
+
+
+

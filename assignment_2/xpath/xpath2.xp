@@ -1,0 +1,4 @@
+(: xpath2.xp: vrátí počet produktů, které nejsou skladem :)
+
+count(//product[sum(./quantity/location/qty)=0])
+

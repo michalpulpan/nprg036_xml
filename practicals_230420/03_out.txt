@@ -1,0 +1,17 @@
+<xml>
+<employee>
+    <name> John Smith </name>
+    works at
+    <agency id="a1">Best properties in New York</agency>
+</employee>
+<employee>
+    <name> Patrick Jones </name>
+    works at
+    <agency id="a1">Best properties in New York</agency>
+</employee>
+<employee>
+    <name> Emily Smith </name>
+    works at
+    <agency id="a1">Best properties in New York</agency>
+</employee>
+</xml>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<property xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" idProperty="p1" ownerRef="o1">
+            <name>Fireplace Residence</name>
+            <address>
+                <street>Moskevská 234</street>
+                <postalCode>11000</postalCode>
+                <city>Praha</city>
+                <country>Česká republika</country>
+            </address>
+            <numberOfFlats>20</numberOfFlats>
+            <description xmlns:w="http://www.w3.org/1999/xhtml">
+                <w:html>
+                    <w:head>
+                        <w:title>Fireplace Residence Homepage</w:title>
+                    </w:head>
+                    <w:body>
+                        <w:div>Further information...</w:div>
+                    </w:body>
+                </w:html>
+            </description>
+            <features>
+                <feature categories="location comfort">street view</feature>
+                <feature categories="location">subway</feature>
+                <feature categories="security">doorkeeper</feature>
+                <feature categories="comfort security">alarm</feature>
+            </features>
+        </property>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<real-estate
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="02.xsd">
+	
+	<agencies>
+        <agency>
+            <name>První realitní</name>
+            <email>info@realitka.cz</email>
+            <phone>+420 481 234 567</phone>
+        </agency>
+	</agencies>
+    
+    <owners>
+        <owner>
+            <name>Alexandr Kendík</name>
+        </owner>
+	</owners>
+    
+    <properties>
+        <property>
+            <name>Krb</name>
+            <numberOfFlats>20</numberOfFlats>
+        </property>
+	</properties>
+    
+    <flats>
+        <flat>
+            <name>K0101</name>
+            <description>Small flat with no windows</description>
+            <rate>1234</rate>
+        </flat>
+        <flat>
+            <name>K1501</name>
+            <description>Luxury flat with a huge terrace</description>
+            <rate>12345</rate>
+        </flat>
+	</flats>
+    
+</real-estate>
