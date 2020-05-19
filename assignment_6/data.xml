@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE webshop SYSTEM "data.dtd">
+<webshop>
+	<employees>
+		<employee id_num="e_0001" employment_type="full_time">
+			<firstname>Jan</firstname>
+			<surname>Novák</surname>
+			<ssn>7501024578</ssn>
+			<position>Purchases</position>
+			<education>high school</education>
+			<contract contract_id="c_0001">
+				<from>0103207</from>
+				<to/>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+				<item id_item="i_0001" returned="yes">
+					<given_date>02012016</given_date>
+					<status_given_date>A+ (everything working properly, no dents or scratches)</status_given_date>
+					<returned_date>20122019</returned_date>
+					<status_returned_date>A (everything working properly, no dents, slightly scratched display cover)</status_returned_date>
+				</item>
+				<item id_item="i_0002" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>B (everything working properly, little dent in one corner, scratches on lid)</status_given_date>
+				</item>
+			</equipment_received>			
+			<salary>19000</salary>
+			<holidays>
+				<holiday>
+					<from>31072018</from>
+					<to>07082018</to>
+				</holiday>
+				<holiday>
+					<from>31022019</from>
+					<to>07122019</to>
+				</holiday>
+			</holidays>
+			<sickdays>
+				<sickday>
+					<from>25022017</from>
+					<to>26022017</to>
+				</sickday>
+			</sickdays>
+			
+		</employee>
+		
+		<employee id_num="e_0002" employment_type="part_time">
+			<firstname>Václav</firstname>
+			<surname>Nový</surname>
+			<ssn>9302025478</ssn>
+			<position>IT managment</position>
+			<education>university</education>
+			<contract contract_id="c_0002">
+				<from>20160112</from>
+				<to/>
+				<type>full_time</type>
+			</contract>
+			<equipment_received>
+				<item id_item="i_0001" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>A (everything working properly, no dents, slightly scratched display cover)</status_given_date>
+				</item>
+				<item id_item="i_0003" returned="no">
+					<given_date>20122019</given_date>
+					<status_given_date>A (everything working properly)</status_given_date>
+				</item>
+			</equipment_received>
+			<salary>25000</salary>
+			<holidays>
+
+			</holidays>
+			<sickdays>
+
+			</sickdays>
+		</employee>
+	</employees>
+	
+	<employee_equipment>
+		<equipment category="notebook">
+			<item_eqp item_eqp_id="i_0001">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000001</SN>
+			</item_eqp>
+
+			<item_eqp item_eqp_id="i_0002">
+				<eqp_name>"LENOVO"</eqp_name>
+				<SN>XX000002</SN>
+			</item_eqp>
+		</equipment>
+		<equipment category="mouse">
+			<item_eqp item_eqp_id="i_0003">
+				<eqp_name>"Logitech"</eqp_name>
+				<SN>LOGI000001</SN>
+			</item_eqp>
+		</equipment>
+	</employee_equipment>
+	
+	<products>
+		<product>
+			<code>07014-MxB-ML</code>
+			<EAN>978020137962</EAN>
+			<prod_name>Sportovní bambusová podprsenka</prod_name>
+			<last_change><?php echo Date("d.m.Y")?></last_change>
+			<quantity>
+				<location warehouse_id="w_0001">
+					<qty>500</qty>
+				</location>
+				<location warehouse_id="w_0002">
+					<qty>125</qty>
+				</location>
+			</quantity>			
+			<product_note>Skvele padnouci <bold>sportovni podpsenka</bold> prinasi vyborne <it>vlastnost</it> </product_note>
+
+			<availability>
+				<![CDATA[
+				aval = False
+				for qt in quantity:
+					if qt.qty > 0:
+						aval = True
+				if aval:
+					print(Skladem)
+				else:
+					print(Na objednání)
+				]]>
+			</availability>
+			
+			<available_to/>
+		</product>
+		<product>
+			<code>07018-MxB-ML</code>
+			<EAN>978020137963</EAN>
+			<prod_name>Sportovní bambusová legíny</prod_name>
+			<last_change><?php echo Date("d.m.Y")?></last_change>
+			<quantity>
+				<location warehouse_id="w_0001">
+					<qty>500</qty>
+				</location>
+				<location warehouse_id="w_0002">
+					<qty>15</qty>
+				</location>
+			</quantity>
+			<product_note>&product_notifi;</product_note>
+			<availability>
+				<![CDATA[
+				aval = False
+				for qt in quantity:
+					if qt.qty > 0:
+						aval = True
+				if aval:
+					print(Skladem)
+				else:
+					print(Na objednání)
+				]]>
+			</availability>
+			<available_to/>
+			
+		</product>
+	</products>
+
+	<warehouses>
+		<warehouse warehouse_id="w_0001" responsible_employee="e_0001">
+			<name_warhouse>PILHK_001</name_warhouse>
+			<address>Piletická 55, Hradec Králové, 50003</address>
+		</warehouse>
+		<warehouse warehouse_id="w_0002" responsible_employee="e_0002">
+			<name_warhouse>KLECPRG_001</name_warhouse>
+			<address>Parkerova 617, 250 67 Klecany u Prahy</address>
+		</warehouse>
+	</warehouses>
+</webshop>

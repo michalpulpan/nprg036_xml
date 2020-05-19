@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT webshop (employees, employee_equipment, products, warehouses) >
+<!ENTITY product_notifi "Produkt ve výprodeji">
+<!-- EMPLOYEES SECTION -->
+<!ELEMENT employees (employee)+>
+<!ATTLIST employee id_num ID #REQUIRED
+				   employment_type CDATA #REQUIRED 
+				   holiday (yes|no) "no">			   
+<!ELEMENT employee (firstname, surname, ssn, position,education, contract, equipment_received, salary, holidays, sickdays)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT surname (#PCDATA)>
+<!ELEMENT ssn (#PCDATA)>
+<!ELEMENT position (#PCDATA)>
+<!ELEMENT education (#PCDATA)>
+<!-- CONTRACT SECTION -->
+<!ELEMENT contract (from, to, type)>
+<!ATTLIST contract contract_id ID #REQUIRED>
+<!ELEMENT from (#PCDATA)>
+<!ELEMENT to (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+
+<!-- CONTRACT SECTION END -->
+<!-- EMPLOYEE EQUIPMENT SECTION -->
+<!ELEMENT equipment_received (item)*>
+<!ELEMENT item (given_date,  status_given_date, returned_date?, status_returned_date?)>
+<!ELEMENT given_date (#PCDATA)>
+<!ELEMENT returned_date (#PCDATA)>
+<!ELEMENT status_given_date (#PCDATA|it|bold)*>
+<!ELEMENT status_returned_date (#PCDATA|it|bold)*>
+<!ATTLIST item  id_item IDREF #REQUIRED
+				returned (yes|no) "no">
+<!-- EMPLOYEE EQUIPMENT SECTION END -->
+<!ELEMENT salary (#PCDATA)>
+<!ELEMENT holidays (holiday)*>
+<!ELEMENT holiday (from, to)>
+<!ELEMENT sickdays (sickday)*>
+<!ELEMENT sickday (from, to)>
+
+<!-- EMPLOYEES SECTION END -->
+
+
+<!-- EMPLOYEE_EQUIPMENT SECTION -->
+<!ELEMENT employee_equipment (equipment)+>
+<!ELEMENT equipment (item_eqp)*>
+<!ATTLIST equipment category (notebook|keyboard|mouse) #REQUIRED>
+<!ELEMENT item_eqp (eqp_name, SN)>
+<!ATTLIST item_eqp item_eqp_id ID #REQUIRED>
+<!ELEMENT eqp_name (#PCDATA)>
+<!ELEMENT SN (#PCDATA)>
+<!-- EMPLOYEE_EQUIPMENT SECTION END -->
+
+<!-- PRODUCTS SECTION -->
+<!ELEMENT products (product)+>
+<!ELEMENT product (code, EAN, prod_name,last_change, quantity, product_note, availability?, available_to)>
+<!ELEMENT code (#PCDATA)>
+<!ELEMENT EAN (#PCDATA)>
+<!ELEMENT prod_name (#PCDATA)>
+<!ELEMENT last_change (#PCDATA)>
+<!ELEMENT quantity (location)*>
+<!ATTLIST location warehouse_id IDREF #REQUIRED>
+<!ELEMENT location (qty)>
+<!ELEMENT qty (#PCDATA)>
+<!ELEMENT product_note (#PCDATA|it|bold)*>
+<!ELEMENT available_to EMPTY>
+<!ELEMENT availability (#PCDATA)>
+<!ELEMENT it (#PCDATA)>
+<!ELEMENT bold (#PCDATA)>
+
+<!-- PRODUCTS SECTION END -->
+
+<!-- WAREHOUSES SECTION -->
+<!ELEMENT warehouses (warehouse)+>
+<!ELEMENT warehouse (name_warhouse, address)>
+<!ATTLIST warehouse warehouse_id ID #REQUIRED
+					responsible_employee IDREF #REQUIRED>
+<!ELEMENT name_warhouse (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!-- WAREHOUSES SECTION END -->
